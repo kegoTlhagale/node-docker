@@ -1,0 +1,5 @@
+node_modules
+npm-debug.log
+
+# prevents the two files from  being copied into the docker image and possibly overwrite the modules installed with the image
+
