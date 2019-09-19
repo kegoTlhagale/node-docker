@@ -1,33 +1,14 @@
 // ***node.js server config using a framework(express)
-
 var express = require('express');
 
-var app = express();
+const app = express();
 
-var PORT = 3000;
+const port = process.env.PORT || 3000
+const host = '0.0.0.0';
 
-app.get('/', function (request, response){
-    response.status(200).send('Hello world');
-});
-
-app.listen(PORT, function(){
-    console.log('Server is running on PORT:', PORT);
+app.get('/', (req, res) => {
+    res.send('Hello :) I have been dockerized');
 })
 
-// ***node.js server config without a framework
-
-/* var http = require('http');
-var port
-
-var server = http.createServer(
-    
-    function(request, response){
-    response.writeHead(200, {"Content-type":"text/plain"});
-    response.end("Hello World \n");
-});
-
-server.listen(3000, function() {
-    console.log('Server is running at 3000')
-}) */
-
-
+app.listen(port, host);
+console.log(`Running on http://${host}:${port}`)
